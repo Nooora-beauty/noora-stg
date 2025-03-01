@@ -6,8 +6,8 @@ const execAsync = promisify(exec);
 
 export async function POST(request: NextRequest) {
   // Security check
-  const SECRET_KEY = process.env.NEXT_PUBLIC_DEPLOY_SECRET;
-  if (request.headers.get("x-deploy-key") !== SECRET_KEY) {
+  const DEPLOY_KEY = process.env.NEXT_PUBLIC_DEPLOY_SECRET;
+  if (request.headers.get("x-deploy-key") !== DEPLOY_KEY) {
     return NextResponse.json({ message: "Forbidden" }, { status: 403 });
   }
 
