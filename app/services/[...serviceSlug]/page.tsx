@@ -67,6 +67,33 @@ async function ServicePageWrapper({
   return (
     <>
       <Script
+        id="jsonld-script4"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            name: pageData.pageBar.pageTitle,
+            image: `${process.env.NEXT_PUBLIC_STRAPI_URL}${pageData.headImage.url}`,
+            description:
+              pageData.serviceDetail?.description?.[0].children?.[0]?.text ||
+              "",
+            brand: {
+              "@type": "Brand",
+              name: "Nooora Beauty Concierge",
+            },
+            sku: "001",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.8",
+              bestRating: "5",
+              worstRating: "1",
+              ratingCount: "953",
+            },
+          }),
+        }}
+      />
+      <Script
         id="jsonld-script13"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
