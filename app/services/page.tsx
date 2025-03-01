@@ -22,6 +22,7 @@ export default function ServicesIndexPage() {
 
 async function ServicesIndexPageWrapper() {
   const data = await fetchServicesIndexPage();
+  console.log("data", data);
   return (
     <>
       <Script
@@ -32,9 +33,8 @@ async function ServicesIndexPageWrapper() {
             "@context": "https://schema.org/",
             "@type": "Product",
             name: data.pageBar.pageTitle,
-            image: `${process.env.NEXT_PUBLIC_STRAPI_URL}${data.headImage.url}`,
-            description:
-              data.serviceDetail?.description?.[0].children?.[0]?.text || "",
+            image: `${process.env.NEXT_PUBLIC_STRAPI_URL}${data.pageBar.barIcon.url}`,
+            description: data.chooseService.description || "",
             brand: {
               "@type": "Brand",
               name: "Nooora Beauty Concierge",
