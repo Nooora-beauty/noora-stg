@@ -1,0 +1,5 @@
+User-agent: *
+allow:
+Disallow: /search
+Disallow: /feed
+Sitemap: https://nooora.ae/sitemap.xml
