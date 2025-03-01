@@ -7,6 +7,7 @@ import { CommonSectionsProvider } from "@/context/CommonSectionsContext";
 // import dynamic from "next/dynamic";
 import React from "react";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // const AppFooter = dynamic(
 //   () => import("@/components/library/commonSections/Footer")
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${philosopher.variable} ${quattrocentoSans.variable} antialiased`}
       >
+        <SpeedInsights />
         <GoogleAnalytics />
         {/* <AppHeader headerData={commonSectionsData.header} /> */}
         <CommonSectionsProvider fetchPromise={commonSectionsDataPormise}>
